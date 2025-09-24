@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Civil Service Exam Pretest 4 - Sentence Structure</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.6;
+  }
+  .question { margin-bottom: 20px; }
+  .answers { list-style: none; padding: 0; }
+  .answers li { margin: 5px 0; }
+  .submit-btn { margin-top: 20px; }
+  .result { margin-top: 30px; padding: 15px; border-top: 2px solid #ccc; }
+  .correct { color: green; font-weight: bold; }
+  .incorrect { color: red; font-weight: bold; }
+  .explanation {
+    margin-top: 20px;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<h1>CIVIL SERVICE EXAM PRETEST 4</h1>
+<h3>CREATED BY: CSE LEARNING ESSENTIALS</h3>
+<h2>SECTION 1: VERBAL ABILITY</h2>
+<h3>PART 4: SENTENCE STRUCTURE</h3>
+<p><strong>PRACTICE TEST</strong> | <strong>10-ITEM TEST</strong> | <strong>PASSING SCORE: 8</strong></p>
+
+<p><em>Directions:</em> Choose the best sentence that follows correct grammar and proper sentence structure.</p>
+
+<form id="quiz-form">
+  <div id="questions-container"></div>
+  <div class="submit-btn">
+    <button type="button" onclick="submitQuiz()">Submit</button>
+  </div>
+</form>
+
+<div id="result" class="result"></div>
+
+<div id="explanation" class="explanation" style="display:none;">
+  <h3>Answer Explanations:</h3>
+  <ol>
+    <li>E – Dangling Modifier → Subject (he) matches the action.</li>
+    <li>E – Sentence Fragment → Complete sentence. Others are fragments.</li>
+    <li>C – Parallelism → All verbs are in the same form.</li>
+    <li>E – Misplaced Modifier → Describes hikers clearly.</li>
+    <li>C – Subject-Verb Agreement → "Bouquet" is singular → "was given."</li>
+    <li>D – Run-on Sentence → Correctly joined with "and."</li>
+    <li>E – Comma Splice → Fixed using "so."</li>
+    <li>E – Apostrophe Misuse → Correct = teacher’s lounge.</li>
+    <li>B – Word Order → Natural subject–verb–object order.</li>
+    <li>E – Passive Voice → Active voice is stronger.</li>
+  </ol>
+</div>
+
+<div class="social-link">
+  <p>Follow us on <a href="https://www.facebook.com/cselearningessentials/" target="_blank">Facebook</a> for more updates!</p>
+  <p>Subscribe to our YouTube Channel <a href="https://www.youtube.com/@cselearningessentialsph2023" target="_blank">here</a> for more content!</p>
+</div>
+
+<div class="advertisement">
+  <img src="images/advertisement.png" alt="Civil Service E-book" style="width: 100%; max-width: 400px; display: block; margin: 0 auto 15px auto; border-radius: 5px;">
+  <p>Avail our latest Civil Service Exam Reviewer E-books. Direct message us for more details!</p>
+</div>
+
+<script>
+  // Questions and choices
+  const questions = [
+    [
+      "Running late for school, the alarm clock didn’t ring on time.",
+      "Running late for school, the bus left him behind.",
+      "Running late for school, his backpack fell on the ground.",
+      "Running late for school, the classroom door was closed.",
+      "Running late for school, he skipped breakfast and hurried outside."
+    ],
+    [
+      "Because she wanted to get a higher score on the test.",
+      "Although he studied for hours last night.",
+      "Walking quickly through the busy street.",
+      "The girl who lives next door.",
+      "She wanted to get a higher score on the test, so she studied all night."
+    ],
+    [
+      "She likes reading, to cook, and jogging.",
+      "He wants to learn swimming, biking, and to run.",
+      "They enjoy hiking, singing, and dancing.",
+      "I love to paint, drawing, and cooking.",
+      "He enjoys reading, swim, and biking."
+    ],
+    [
+      "She served sandwiches to the children on paper plates.",
+      "The teacher nearly spent five hours grading the papers.",
+      "Running across the street, the car nearly hit her.",
+      "He almost watched every movie in the collection.",
+      "Covered in snow, the hikers admired the beautiful scenery."
+    ],
+    [
+      "The group of students are planning a surprise for their teacher.",
+      "The players in the team practices every morning.",
+      "The bouquet of roses was given to her yesterday.",
+      "A list of names are on the table.",
+      "The pair of shoes were placed in the closet."
+    ],
+    [
+      "She was tired she went to bed early.",
+      "The dog barked loudly, it woke up the neighbors.",
+      "He likes pizza he eats it every day.",
+      "She went to the market, and she bought some vegetables.",
+      "They arrived late it was raining heavily."
+    ],
+    [
+      "She was late, she missed the bus.",
+      "He plays the guitar, he also sings.",
+      "They studied all night, they passed the exam.",
+      "The rain stopped, the sun came out.",
+      "I was hungry, so I made myself a sandwich."
+    ],
+    [
+      "The boy’s are playing outside.",
+      "The cats tail is long and fluffy.",
+      "The teachers lounge is open until 5 p.m.",
+      "The childrens toys are scattered everywhere.",
+      "The teacher’s lounge is open until 5 p.m."
+    ],
+    [
+      "Quickly she finished her homework and went to bed.",
+      "She quickly finished her homework and went to bed.",
+      "Finished quickly her homework she and went to bed.",
+      "She her homework finished quickly and went to bed.",
+      "Her homework she quickly finished and went to bed."
+    ],
+    [
+      "The ball was thrown by John to Peter while the crowd was cheering loudly.",
+      "The homework was completed by the student before the deadline was reached.",
+      "The dinner was cooked by Maria, and the table was set by Paul.",
+      "Mistakes were made by the manager during the meeting yesterday.",
+      "John threw the ball to Peter while the crowd cheered loudly."
+    ]
+  ];
+
+  // Correct answers
+  const correctAnswers = ["E","E","C","E","C","D","E","E","B","E"];
+
+  const container = document.getElementById("questions-container");
+
+  // Render questions
+  questions.forEach((choices, idx) => {
+    const qNum = idx + 1;
+    const div = document.createElement("div");
+    div.classList.add("question");
+    div.innerHTML = `<p>${qNum}. Choose the correct sentence:</p>`;
+    const ul = document.createElement("ul");
+    ul.classList.add("answers");
+
+    choices.forEach((text, i) => {
+      const li = document.createElement("li");
+      const letter = String.fromCharCode(65 + i);
+      li.innerHTML = `<label><input type="radio" name="q${qNum}" value="${letter}"> ${letter}) ${text}</label>`;
+      ul.appendChild(li);
+    });
+
+    div.appendChild(ul);
+    container.appendChild(div);
+  });
+
+  // Submit function
+  function submitQuiz() {
+    let score = 0;
+    let resultHTML = "";
+
+    for (let i = 1; i <= 10; i++) {
+      const selected = document.querySelector(`input[name="q${i}"]:checked`);
+      if (selected) {
+        if (selected.value === correctAnswers[i-1]) {
+          score++;
+          resultHTML += `<p class="correct">Q${i}: Correct</p>`;
+        } else {
+          resultHTML += `<p class="incorrect">Q${i}: Incorrect. Correct answer: ${correctAnswers[i-1]}</p>`;
+        }
+      } else {
+        resultHTML += `<p class="incorrect">Q${i}: Not answered. Correct answer: ${correctAnswers[i-1]}</p>`;
+      }
+    }
+
+    const status = score >= 8 ? "Passed ✅" : "Failed ❌";
+    document.getElementById("result").innerHTML = `<h3>Your Score: ${score} / 10 - ${status}</h3>${resultHTML}`;
+    document.getElementById("explanation").style.display = "block";
+    document.getElementById("result").scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+</body>
+</html>
